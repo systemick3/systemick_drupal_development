@@ -72,7 +72,7 @@
 <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
 </a>
 <?php endif; ?>
-<div id="site-slogan"><?php if ($site_slogan): ?><?php print $site_slogan; ?><?php endif; ?></div><!--site slogan-->
+<div id="site-slogan"><?php if ($site_slogan): ?><h3><?php print $site_slogan; ?></h3><?php endif; ?></div><!--site slogan-->
 </div><!--end logo-->
  <?php if ($page['search_box']): ?><!-- / start search box region -->
     <div class="search-box">
@@ -81,9 +81,9 @@
  <?php endif; ?>
  <?php if (theme_get_setting('social_icons')): ?>
 <ul id="header-social">
-<li><a href="http://www.twitter.com/<?php echo theme_get_setting('twitter_username'); ?>" target="_blank" rel="me"><img src="<?php global $base_url; echo $base_url.'/'.$directory; ?>/images/twitter.png" alt="twitter"/></a></li>
-<li><a href="http://www.facebook.com/<?php echo theme_get_setting('facebook_username'); ?>" target="_blank" rel="me"><img src="<?php global $base_url; echo $base_url.'/'.$directory; ?>/images/facebook.png" alt="facebook"/></a></li>
-<li><a href="<?php print $front_page . ($language->prefix ? '/' : ''); ?>rss.xml"><img src="<?php global $base_url; echo $base_url.'/'.$directory; ?>/images/rss.png" alt="RSS"/></a></li>
+<li><a href="http://www.twitter.com/<?php echo theme_get_setting('twitter_username'); ?>" target="_blank" rel="me"><img src="<?php global $base_url; echo $base_url.'/'.$directory; ?>/images/twitter-blue.png" alt="twitter"/></a></li>
+<!--<li><a href="http://www.facebook.com/<?php echo theme_get_setting('facebook_username'); ?>" target="_blank" rel="me"><img src="<?php global $base_url; echo $base_url.'/'.$directory; ?>/images/facebook.png" alt="facebook"/></a></li>-->
+<li><a href="<?php print $front_page . ($language->prefix ? '/' : ''); ?>rss.xml"><img src="<?php global $base_url; echo $base_url.'/'.$directory; ?>/images/rss-orange.png" alt="RSS"/></a></li>
 </ul><!--end header-social-->
 <?php endif; ?>
 </div><!--end header-top-->
@@ -110,17 +110,17 @@
     <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
     <?php print render($page['content']); ?>
   </section> <!-- /#main -->
-  
-  <?php if ($page['sidebar_first']): ?>
-    <aside id="sidebar-first" role="complementary" class="sidebar clearfix">
-      <?php print render($page['sidebar_first']); ?>
-    </aside>  <!-- /#sidebar-first -->
-  <?php endif; ?>
 
   <?php if ($page['sidebar_second']): ?>
     <aside id="sidebar-second" role="complementary" class="sidebar clearfix">
       <?php print render($page['sidebar_second']); ?>
     </aside>  <!-- /#sidebar-second -->
+  <?php endif; ?>
+  
+  <?php if ($page['sidebar_first']): ?>
+    <aside id="sidebar-first" role="complementary" class="sidebar clearfix">
+      <?php print render($page['sidebar_first']); ?>
+    </aside>  <!-- /#sidebar-first -->
   <?php endif; ?>
 </div> <!-- end content-body -->
 <div class="clear"></div>

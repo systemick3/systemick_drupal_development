@@ -60,6 +60,11 @@ function dd_preprocess_page(&$vars) {
   else {
     $vars['secondary_menu'] = FALSE;
   }
+
+  $is_front =  $vars['is_front'];
+  if($is_front) {
+    drupal_set_title('Drupal Development - a blog');
+  }
 }
 
 /**
@@ -90,5 +95,14 @@ function dd_preprocess_node(&$variables) {
   $variables['submitted'] = t('By !username on !datetime', array('!username' => $variables['name'], '!datetime' => $variables['date']));
   if ($variables['view_mode'] == 'full' && node_is_page($variables['node'])) {
     $variables['classes_array'][] = 'node-full';
+  }
+}
+
+function print_pre($data, $exit = TRUE) {
+  print '<pre>';
+  print_r($data);
+  print '</pre>';
+  if($exit) {
+    exit;
   }
 }

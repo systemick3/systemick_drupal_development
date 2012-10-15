@@ -93,7 +93,7 @@ hr {
     border: none;  
 	clear: both;  
 	float: none;  
-	width: 100%; }
+	width: 100%; 
 }
 
 input, select {
@@ -130,12 +130,13 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: 1.5385em;
-  line-height: 2;
-  margin-top: 1em;
+  line-height: 1.5;
+  /*margin-top: 1em;*/
 }
 
 h3, .h3 {
-  font-size: 1.2308em;
+  /*font-size: 1.2308em;*/
+  font-weight: bold;
   line-height: 1.25;
   
 }
@@ -268,7 +269,7 @@ background: #676767;
 /* Header and Main menu
 ------------------------------------------------*/
 #header {
-  margin-top: 25px;
+  /*margin-top: 25px;*/
 }
 
 #main-menu{
@@ -437,11 +438,13 @@ text-decoration: none;
 
 }
 .node-teaser{
-margin-bottom: 40px;
+margin-bottom: 20px;
 margin-right: 20px;
 float: left;
-width: 300px;
-height: 500px;
+width: 470px;
+background-color: #eee;
+border-top: dotted 1px #aaa;
+/*height: 500px;*/
 }
 
 
@@ -450,7 +453,7 @@ height: 500px;
 #content-body {
 background: #f4f4f4;
 width: 960px;
-padding: 0 10px 0 10px;
+padding: 0 0 0 10px;
 float: left;
 margin-top: 8px;
 border-radius: 7px;
@@ -467,10 +470,11 @@ border: 1px solid #dbdbdb;
 /* 3 columns */
 
 body.two-sidebars #main {
+  border-right: solid 1px #aaa;
   float: left;
-  margin: 0 0 0 240px;
+  /*margin: 0 0 0 240px;*/
   padding: 0;
-  width: 480px;
+  width: 485px;
 }
 
 /* 2 columns: sidebar-first */
@@ -495,17 +499,36 @@ body.sidebar-second #main {
 ------------------------------------------------*/
 
 /* 3 columns: sidebar-first */
-#sidebar-first h2, #sidebar-second h2{
+#sidebar-first h2, #sidebar-second h2, .node-teaser h2, #main .content h2{
+background-color: #ddd;
+background-color: #eb9e09;
+border: 1px solid #3e3e3e;
+border-radius: 4px;
+color: #3e3e3e;
 font-family: 'Ubuntu Condensed', sans-serif;
+font-weight: bold;
+padding: 0 10px;
+}
+#block-tagadelic-1 h2, #block-block-1 h2 {
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.block-search {
+  margin-top: 10px;
+}
+#sidebar-second h2 {
+  margin-right: 7px;
 }
 #sidebar-first a, #sidebar-second a{
-color: #636363;
+color: #03accc;
+font-weight: bold;
 }
 #sidebar-first a:hover, #sidebar-second a:hover{
 color: #0080aa;
 }
 #sidebar-first .block, #sidebar-second .block{
-background: #ededee;
+background: #f4f4f4;
+border-bottom: 1px solid #aaa;
 border-radius: 5px;
 padding: 0px 0px 4px 6px;
 }
@@ -523,19 +546,21 @@ padding: 4px 0 4px 17px;
 }
 
 body.two-sidebars #sidebar-first {
-  float: left;
-  margin: 0 0 0 -720px;
-  padding: 0;
-  width: 220px;
+  /*border-right: solid 1px #aaa;*/
+  float: right;
+  margin: 0 0 0 0;
+  padding: 0 5px 0 0;
+  width: 230px;
 }
 
 /* 3 columns: sidebar-second */
 
 body.two-sidebars #sidebar-second {
+  border-left: solid 1px #aaa;
   float: right;
   margin: 0;
-  padding: 0;
-  width: 220px;
+  padding: 0 1px 0 3px;
+  width: 232px;
 }
 
 /* 2 columns: sidebar-first */
@@ -563,16 +588,16 @@ font-family: 'Ubuntu Condensed', sans-serif;
 color: #000;
 }
 .title a{
-color: #000;
+color: #3e3e3e;
 }
 h2.title a{
 font-size: 18px;
 margin: 5px 0;
-font-weight: normal;
+font-weight: bold;
 }
 
 .submitted{
-background: #dfdddd;
+background: #dfddd;
 padding: 4px 9px;
 border-radius: 4px;
 color: #383838;
@@ -582,7 +607,7 @@ display: block;
 margin-bottom: 2px;
 }
 #main .content {
-color: #7e7e7e;
+color: #323232;
 }
 #main .content p{
 line-height: 20px;
@@ -595,13 +620,14 @@ margin: 10px 0 6px 0;
 font-family: 'Ubuntu Condensed', sans-serif;
 color: #222222;
 }
-#main .content h2{
+/*#main .content h2{
 font-size: 22px;
 line-height: 1.2; 
 margin: 8px 0 5px 0;
 font-family: 'Ubuntu Condensed', sans-serif;
+font-weight: bold;
 color: #222222;
-}
+}*/
 #main .content h3{
 font-size: 18px;
 line-height: 1.2; 
@@ -636,12 +662,13 @@ margin-top: 10px;
 font-size: 10px;
 }
 .links li a{
-background: #d3d1d1;
+/*background: #d3d1d1;*/
+border: 1px solid #3e3e3e;
 padding: 4px 5px;
 border-radius: 4px;
-color: #383838;
+color: #03accc;
 text-shadow: 1px 1px #fff;
-font-weight: normal;
+font-weight: bold;
 }
 .links li a:hover{
 color: #1451ad;
@@ -831,11 +858,11 @@ color: #000;
 }
 /* Blocks
 ------------------------------------------------*/
-.block {
+/*.block {
   margin-bottom: 1.5385em;
-}
+}*/
 .block  p{
-  margin-bottom: 2px;
+  margin-bottom: 10px;
 }
 /* Footer
 ------------------------------------------------*/
@@ -1032,4 +1059,85 @@ font-size: 16px;
 background:url(images/goup.png) no-repeat; 
 width:53px; 
 height:53px; 
+}
+
+/* .......... Added by Mike ..............*/
+h1#page-title{
+  background-color: #eb9e09;
+  border: 1px solid #3e3e3e;
+  border-radius: 4px;
+  color: #3e3e3e;
+  margin-right: 10px;
+  padding-left: 10px;
+}
+body.front h1#page-title {
+  width: 465px;
+}
+.node-teaser .content {
+  margin: 0 0 5px 0;
+}
+.view-systemick-tweets .views-row,
+.view-recent-blogs .views-row,
+.view-recent-tutorials .views-row{
+  margin: 10px 0 0 0;
+}
+.view-systemick-tweets .views-row {
+  background-color: #eee;
+  border-bottom: 1px dotted #aaa;
+  border-radius: 4px;
+  font-style: italic;
+  padding: 0 0 5px 0;
+}
+.view-systemick-tweets .views-row a {
+  font-style: normal;
+}
+.more-link {
+  padding: 10px 0;
+}
+form#search-block-form {
+  margin-top: 10px;
+}
+.block .content {
+  padding: 0 5px;
+}
+#block-search-form .content {
+  padding: 0;
+}
+#main .node-teaser header {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+#main .node-teaser h2 {
+  background-color: #eee;
+  border: none;
+  border-radius: 4px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 400;
+}
+#main .node-teaser h2 a {
+  color: #03accc;
+}
+article.node-blog.node-teaser {
+  background: #eee url(/sites/all/themes/dd/images/blog_50_50.png) no-repeat right top;
+  position: relative;
+  z-index: 2;
+}
+article.node-tutorial.node-teaser {
+  background: #eee url(/sites/all/themes/dd/images/tutorial_50_50.png) no-repeat right top;
+  position: relative;
+  z-index: 2;
+}
+body.page-node span.submitted {
+  font-style: italic;
+  padding: 10px 0 10px 10px;
+}
+
+.front #edit-actions #edit-submit {
+  margin-top: 20px;
 }

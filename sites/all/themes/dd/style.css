@@ -1141,3 +1141,22 @@ body.page-node span.submitted {
 .front #edit-actions #edit-submit {
   margin-top: 20px;
 }
+
+ul#tweets-page-list li {
+  background-color: #eee;
+  border-bottom: 1px dotted #aaa;
+  border-radius: 4px;
+  font-style: italic;
+  margin: 10px 0 0 0;
+  padding: 0 0 5px 0;
+}
+
+#block-tweets-recent-tweets ul {
+  list-style-type: none;
+}
+#block-tweets-recent-tweets ul li {
+  background: none;
+  font-style: italic;
+  padding: 10px 0 0 0;
+}
+  

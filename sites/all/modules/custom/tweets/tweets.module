@@ -1,0 +1,269 @@
+<?php
+
+/**
+ * @file
+ * Implements block and page callback to display Systemick tweets
+ */
+
+define('MAX_TWEETS', 50);
+define('BLOCK_TWEETS', 5);
+
+/**
+  * Implements of hook_help().
+  */
+function tweets_help($path, $arg) {
+  switch($path) {
+    case 'admin/help#tweets':
+      return '<p>' . t('A module to display tweets both on a page and as a block') . '</p>';
+      break;
+  }
+}
+
+/**
+  * Implements of hook_menu().
+  */
+function tweets_menu() {
+  $menu['tweets'] = array(
+    'title' => 'Tweets',
+    'access callback' => TRUE,
+    'page callback' => 'tweets_page',
+    'type' => MENU_CALLBACK,
+  );
+  $menu['admin/settings/tweets'] = array(
+    'title' => 'Tweets Settings',
+    'description' => 'Change URLs and account name for Tweets',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('tweets_admin_settings'),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $menu;
+}
+
+/**
+  * Implements of hook_theme().
+  */
+function tweets_theme() {
+  return array(
+    'tweet' => array(
+      'arguments' => array('content' => NULL),
+      'template' => 'tweet',
+    ),
+  );
+}
+
+/**
+  * Implements of hook_admin_settings().
+  */
+function tweets_admin_settings() {
+  $form['tweets_twitter_api'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Twitter API URL',
+    '#required' => TRUE,
+    '#default_value' => variable_get('tweets_twitter_api', ''),
+    '#description' => t('Enter URL of the Twitter API'),
+  );
+  $form['tweets_user_name'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Twitter Account',
+    '#required' => TRUE,
+    '#default_value' => variable_get('tweets_user_name', ''),
+    '#description' => t('Enter username of the Twitter user'),
+  );
+  $form['tweets_access_token'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Twitter Access Token',
+    '#required' => TRUE,
+    '#default_value' => variable_get('tweets_access_token', ''),
+    '#description' => t('Enter access token of the Twitter user'),
+  );
+  $form['tweets_access_token_secret'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Twitter Access Token Secret',
+    '#required' => TRUE,
+    '#default_value' => variable_get('tweets_access_token_secret', ''),
+    '#description' => t('Enter access token secret of the Twitter user'),
+  );
+  $form['tweets_consumer_key'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Consumer Key',
+    '#required' => TRUE,
+    '#default_value' => variable_get('tweets_consumer_key', ''),
+    '#description' => t('Enter consumer key of the Twitter user'),
+  );
+  $form['tweets_consumer_secret'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Consumer Secret',
+    '#required' => TRUE,
+    '#default_value' => variable_get('tweets_consumer_secret', ''),
+    '#description' => t('Enter consumer secret of the Twitter user'),
+  );
+  return system_settings_form($form);
+}
+
+/**
+  * Implements of hook_block_info().
+  */
+function tweets_block_info() {
+  $blocks = array();
+  $blocks['recent_tweets'] = array(
+    'info' => t('Recent Tweets'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+  * Implements of hook_block_view().
+  */
+function tweets_block_view($block_name = '') {
+  if($block_name == 'recent_tweets') {
+    $tweets = tweets_content(BLOCK_TWEETS);
+    $follow_image = array(
+      'path' => drupal_get_path('module', 'tweets').'/tweets.png',
+      'alt' => 'Follow Systemick on Twitter',
+      'title' => 'Follow Systemick on Twitter',
+      'attributes' => array('class' => 'follow-image'),
+    );
+    $block = array();
+    $block['subject'] = t('Recent Tweets');
+    $block['content']['list'] = array(
+      '#theme' => 'item_list',
+      '#items' => $tweets,
+    );
+    $block['content']['more'] = array(
+      '#markup' => l('See more tweets...', 'tweets', array('attributes' => array('class' => 'more-link'))),
+    );
+    //$block['content']['follow'] = array(
+      //'#markup' => l(theme('image', $follow_image), 'http://twitter.com/systemick', array('html' => TRUE)),
+    //);
+    return $block;
+  }
+}
+
+/**
+ * Format tweets content to display in a page callback.
+ *
+ * @param $tweet_count
+ *   The number of tweets to display. If FALSE all tweets will be displaed
+ */
+function tweets_page($tweet_count = FALSE) {
+  drupal_set_title('Recent Tweets');
+  $tweets = tweets_content($tweet_count);
+  $variables = array();
+  $variables['items'] = $tweets;
+  $variables['title'] = '';
+  $variables['type'] = 'ul';
+  $variables['attributes'] = array('id' => 'tweets-page-list');
+  return array('#markup' => theme('item_list', $variables));
+}
+
+/**
+ * Get a number of tweets to display in a page or a block.
+ *
+ * @param $tweet_count
+ *   The number of tweets to display. If FALSE all tweets will be displayed
+ */
+function tweets_content($tweet_count) {
+  $results = tweets_get_tweets();
+  //print_pre($results);
+  if (is_int($tweet_count)) {
+    $results = array_slice($results, 0, $tweet_count);
+  }
+  $tweets_user_name = variable_get('tweets_user_name', 'systemick');
+  $twitter_api_url = variable_get('twitter_api_url', 'twitter.com');
+
+  $url = (substr($twitter_api_url, 0, 8) == 'https://') ? '' : 'http://' . $twitter_api_url . '/' . $tweets_user_name . '/status/';
+
+  $reply_url = (substr($twitter_api_url, 0, 8) == 'https://') ? '' : 'http://' . $twitter_api_url . '/?status=@' . $tweets_user_name . '&in_reply_to_status_id=';
+
+  $tweets = array();
+  foreach($results as $result) {
+    $result->text = _tweets_format_text($result->text, $filter);
+    $result->tweet_link = _tweets_format_date('' . strtotime($result->created_at));
+    $result->reply_link = l('Reply', $reply_url . $result->id . '&in_reply_to=' . $tweets_user_name);
+    $tweets[] = theme('tweet', (array)$result);
+  }
+  return $tweets;
+}
+
+function tweets_get_tweets() {
+  // Get from cache or from youtube
+  if (time() > _tweets_get_cache_expiry()) {
+    $tweets = tweets_get_fresh_tweets();
+    // Cache results for 1 hour
+    cache_set('tweets', serialize($tweets), 'cache', time() + (60 * 60));
+  }
+  else {
+    if ($cache = cache_get('tweets')) {
+      $tweets = unserialize($cache->data);
+    }
+    else {
+      $tweets = array();
+    }
+  }
+  return $tweets;
+}
+
+/**
+ * Get tweets from the twitter site.
+ *
+ * @return An array of tweet objects
+ */
+function tweets_get_fresh_tweets() {
+  $tweets_user_name = variable_get('tweets_user_name', 'systemick');
+  $twitter_api_url = variable_get('twitter_api_url', 'api.twitter.com');
+  $url = (substr($twitter_api_url, 0, 8) == 'https://') ? '' : 'https://' . $twitter_api_url . '/1/statuses/user_timeline.json?screen_name=' . $tweets_user_name;
+  $json = file_get_contents($url);
+  return json_decode($json);
+}
+
+function _tweets_format_date($timestamp, $format = FALSE) {
+  if ($format) {
+    return date($format, $timestamp);
+  }
+  else {
+    return date('D F j, Y - H:i', $timestamp);
+  }
+}
+
+// Used to get the time since text to display below the tweet
+// Not currently used but left here just in case
+function _tweets_get_time_since($timestamp) {
+  $time_difference = time() - $timestamp;
+  $one_day = 24 * 60 * 60;
+  $days_difference = floor($time_difference / $one_day);
+  $twelve_hours = 12 * 60 * 60;
+  $two_days = 2 * $one_day;
+  $one_hour = 60 * 60;
+  if ($time_difference < $one_hour) {
+    $minutes = floor($time_difference / 60);
+    return format_plural($minutes, '1 minute ago', '@count minutes ago');
+  } else if ($time_difference < $twelve_hours) {
+    $hours = floor($time_difference / $one_hour);
+    return format_plural($hours, '1 hour ago', '@count hours ago');
+  } else if ($time_difference < $one_day && date('N') == date('N', $timestamp)) {
+    return 'Earlier today';
+  } else if ($time_difference < $one_day && date('N') != date('N', $timestamp)) {
+    return 'Yesterday';
+  } else if ($time_difference < $two_days && date('N') - date('N', $timestamp) == 1) {
+    return 'Yesterday';
+  } else {
+    return format_plural($days_difference, '1 day ago', '@count days ago');
+  }
+}
+
+// Format the tweet text
+// Replace #, @ and link text with a link
+function _tweets_format_text($text) {
+  $text = preg_replace("#(^|[\n ])([\w]+?://[\w]+[^ \"\n\r\t< ]*)#", "\\1<a href=\"\\2\" target=\"_blank\">\\2</a>", $text);
+  $text = preg_replace("#(^|[\n ])((www|ftp)\.[^ \"\t\n\r< ]*)#", "\\1<a href=\"http://\\2\" target=\"_blank\">\\2</a>", $text);
+  $text = preg_replace("/@(\w+)/", "<a href=\"http://www.twitter.com/\\1\" target=\"_blank\">@\\1</a>", $text);
+  $text = preg_replace("/#(\w+)/", "<a href=\"http://search.twitter.com/search?q=\\1\" target=\"_blank\">#\\1</a>", $text);
+  return $text;
+}
+
+// Get the expiry time of the cached tweets
+function _tweets_get_cache_expiry() {
+  return db_query("SELECT expire FROM {cache} WHERE cid = 'tweets'")->fetchField();
+}

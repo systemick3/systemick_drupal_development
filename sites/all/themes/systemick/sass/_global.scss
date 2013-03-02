@@ -1,0 +1,73 @@
+body {
+  background-color: #eee;
+  color: #666;
+  font-family: "Quattrocento Sans" sans-serif;
+}
+
+#page {
+  border-left: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+  background-color: #fff;
+}
+
+a:link, a:visited, a:hover {
+  color: #224f9b;
+  font-weight: bold;
+}
+
+p {
+  color: #666;
+  font-family: "Quattrocento Sans" sans-serif;
+  font-size: 18px;
+}
+
+h1, h2 {
+  color: #0099cc;
+  font-family: "Arvo";
+}
+
+#page-title {
+  margin-left: 10px;
+}
+
+.form-text,
+.form-textarea,
+.form-select {
+  background-color: #FFF;
+  border: 1px solid #0099cc;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  color: #ccc;
+  height: 23px;
+  left: 4px;
+  padding-left: 5px;
+  position: relative;
+}
+
+#edit-submit {
+  background-color: #0099cc;
+  border: 2px solid #FFF;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #FFF;
+  height: 32px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  position: relative;
+}
+
+form label {
+  color: #0099cc;
+  font-family: allerta;
+}
+
+#footer {
+  border-bottom: 1px solid #666;
+  border-top: 1px solid #666;
+  text-align: center;
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>http://systemick-drupal-development.localhost/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>http://systemick-drupal-development.localhost/blog</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/contact</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/content/handling-clients</loc><lastmod>2012-10-09T14:51Z</lastmod><changefreq>yearly</changefreq></url>
+<url><loc>http://systemick-drupal-development.localhost/content/install-drupal-theme</loc><lastmod>2012-10-08T16:43Z</lastmod><changefreq>yearly</changefreq></url>
+<url><loc>http://systemick-drupal-development.localhost/content/install-drupal-module</loc><lastmod>2012-10-08T16:43Z</lastmod><changefreq>yearly</changefreq></url>
+<url><loc>http://systemick-drupal-development.localhost/content/create-view</loc><lastmod>2012-06-08T13:57Z</lastmod><changefreq>yearly</changefreq></url>
+<url><loc>http://systemick-drupal-development.localhost/content/create-block</loc><lastmod>2012-06-08T13:56Z</lastmod><changefreq>yearly</changefreq></url>
+<url><loc>http://systemick-drupal-development.localhost/content/how-install-drupal</loc><lastmod>2012-10-09T15:34Z</lastmod><changefreq>yearly</changefreq></url>
+<url><loc>http://systemick-drupal-development.localhost/content/create-content-type</loc><lastmod>2012-10-09T15:33Z</lastmod><changefreq>yearly</changefreq></url>
+<url><loc>http://systemick-drupal-development.localhost/content/building-drupal-site-scratch-without-writing-any-code</loc><lastmod>2012-10-08T14:44Z</lastmod><changefreq>yearly</changefreq></url>
+<url><loc>http://systemick-drupal-development.localhost/content/add-term-reference-field-content-type</loc><lastmod>2012-10-08T14:45Z</lastmod><changefreq>yearly</changefreq></url>
+<url><loc>http://systemick-drupal-development.localhost/content/create-menu-link</loc><lastmod>2012-10-08T14:19Z</lastmod><changefreq>yearly</changefreq></url>
+<url><loc>http://systemick-drupal-development.localhost/content/books-about-drupal</loc><lastmod>2012-10-09T14:51Z</lastmod><changefreq>yearly</changefreq></url>
+<url><loc>http://systemick-drupal-development.localhost/content/user-registration</loc><lastmod>2012-10-09T08:11Z</lastmod><changefreq>yearly</changefreq></url>
+<url><loc>http://systemick-drupal-development.localhost/content/views-be-drupal-8-core-0</loc><lastmod>2012-10-09T11:19Z</lastmod><changefreq>yearly</changefreq></url>
+<url><loc>http://systemick-drupal-development.localhost/skills</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/module-development</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/panels</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/blocks</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/content-types</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/themes</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/install-theme</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/module</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/module-installation</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/content-type</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/term-reference</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/menu</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/theme-development</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/field</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/installation</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/drupal-core</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/user-registration</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/drupal-8</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/books</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/clients</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/theme</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/tagadelic</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/modules</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/twitter</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/facebook</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/social</loc></url>
+<url><loc>http://systemick-drupal-development.localhost/tags/views</loc></url>
+</urlset>

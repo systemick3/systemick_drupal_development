@@ -1,0 +1,153 @@
+#header {
+  height: 80px;
+}
+
+#branding {
+  float: left;
+}
+
+#logo {
+  .systemick {
+    color: #0099cc;
+    font-family: "Aldrich";
+    font-size: 90px;
+    font-weight: bold;
+    left: 10px;
+    position: relative;
+  }
+  
+  .web, .development {
+    color: #224f9b;
+    font-family: "Aldrich";
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .web {
+    left: 220px;
+    position: absolute;
+    top: 5px;
+  }
+  
+  .development {
+    left: 320px;
+    position: absolute;
+    top: 5px;
+  }
+  
+  img {
+    left: 562px;
+    position: absolute;
+    top:25px;
+  }
+  
+  @media screen and (-webkit-min-device-pixel-ratio:0) { 
+    .development {
+      left: 320px;
+      position: absolute;
+      top: 5px;
+    }
+  
+    img {
+      left: 512px;
+      position: absolute;
+      top:31px;
+    }
+  }
+}
+
+.region-header {
+  float: right;
+  width: 400px;
+  
+  #block-block-2 {
+    margin-bottom: 0;
+    padding: 0;
+  }
+  
+  #social {
+    float: right;
+    margin-top: 40px;
+    
+    #twitter {
+      float: right;
+    }
+    
+    #facebook {
+      float: right;
+      width: 80px;
+    }
+  }
+  
+  #block-search-form {
+    float: right;
+    margin-bottom: 0;
+  }
+}
+
+#primary-menu-bar {
+  border-bottom: 1px solid #666;
+  border-top: 1px solid #666;
+   
+  a {
+    color: #666;
+    font-family: "Arvo" sans-serif;
+    font-size: 24px;
+  }
+  
+  a.active {
+    /*background-color: #ccc;*/
+    /*border-bottom: 2px solid #fff;
+    border-left: 1px solid #aaa;
+    border-right: 1px solid #aaa;*/
+    color: #0099cc;
+    height: 100%;
+  }
+}
+
+.nav ul,
+.nav ul.menu {
+  padding: 10px 0 10px 0;
+}
+
+#block-search-form {
+  padding: 0;
+  
+  .form-submit {
+    background-color: #0099cc;
+    border: 2px solid #FFF;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #FFF;
+    height: 32px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .form-text,
+  .form-textarea,
+  .form-select {
+    background-color: #FFF;
+    border: 1px solid #0099cc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    color: #ccc;
+    height: 23px;
+    left: 4px;
+    padding-left: 5px;
+    position: relative;
+  }
+  
+  .form-item-search-block-form {
+    width: 100px;
+  }
+  /*float: right;
+  position: relative;
+  top: 115px;*/
+}

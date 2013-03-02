@@ -132,7 +132,7 @@ function tweets_block_view($block_name = '') {
       '#items' => $tweets,
     );
     $block['content']['more'] = array(
-      '#markup' => l('See more tweets...', 'tweets', array('attributes' => array('class' => 'more-link'))),
+      '#markup' => l('See more tweets...', 'tweets', array('attributes' => array('class' => array('more-link')))),
     );
     //$block['content']['follow'] = array(
       //'#markup' => l(theme('image', $follow_image), 'http://twitter.com/systemick', array('html' => TRUE)),
@@ -182,7 +182,8 @@ function tweets_content($tweet_count) {
     $result->text = _tweets_format_text($result->text, $filter);
     $result->tweet_link = _tweets_format_date('' . strtotime($result->created_at));
     $result->reply_link = l('Reply', $reply_url . $result->id . '&in_reply_to=' . $tweets_user_name);
-    $tweets[] = theme('tweet', (array)$result);
+    //$tweets[] = theme('tweet', (array)$result);
+    $tweets[] = theme('tweet', array('content' => $result));
   }
   return $tweets;
 }

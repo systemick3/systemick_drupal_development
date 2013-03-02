@@ -1,0 +1,42 @@
+.block {
+  
+  margin-bottom: 0;
+  padding: 10px;
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
+  .views-field-created {
+    .views-label,
+    .field-content {
+      font-size: 10px;
+      font-style: italic;
+    }
+  }
+}
+
+#block-block-1 {
+  border-bottom: solid 1px #aaa;
+  padding-top: 20px;
+  
+  img {
+    border: solid 2px #aaa;
+    float: right;
+    margin: 5px 0 10px 10px;
+  }
+}
+
+#block-views-blog-block {
+  float: left;
+  padding-right: 100px;
+  width: 40%;
+}
+
+#main-content {
+  margin-top: 20px;
+}
+
+.sidebar-first .region-sidebar-first {
+  margin-top: 15px;
+}

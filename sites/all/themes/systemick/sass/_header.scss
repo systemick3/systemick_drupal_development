@@ -1,5 +1,6 @@
 #header {
   height: 80px;
+  padding-top: 20px;
 }
 
 #branding {
@@ -26,19 +27,19 @@
   .web {
     left: 220px;
     position: absolute;
-    top: 5px;
+    top: 25px;
   }
   
   .development {
     left: 320px;
     position: absolute;
-    top: 5px;
+    top: 25px;
   }
   
   img {
     left: 562px;
     position: absolute;
-    top:25px;
+    top:45px;
   }
   
   @media screen and (-webkit-min-device-pixel-ratio:0) { 

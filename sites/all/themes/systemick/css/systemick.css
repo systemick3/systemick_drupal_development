@@ -63,7 +63,8 @@ form label {
   text-align: center; }
 
 #header {
-  height: 80px; }
+  height: 80px;
+  padding-top: 20px; }
 
 #branding {
   float: left; }
@@ -83,15 +84,15 @@ form label {
 #logo .web {
   left: 220px;
   position: absolute;
-  top: 5px; }
+  top: 25px; }
 #logo .development {
   left: 320px;
   position: absolute;
-  top: 5px; }
+  top: 25px; }
 #logo img {
   left: 562px;
   position: absolute;
-  top: 25px; }
+  top: 45px; }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   #logo .development {
     left: 320px;

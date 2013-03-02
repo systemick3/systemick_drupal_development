@@ -97,11 +97,11 @@ form label {
   #logo .development {
     left: 320px;
     position: absolute;
-    top: 5px; }
+    top: 25px; }
   #logo img {
     left: 512px;
     position: absolute;
-    top: 31px; } }
+    top: 51px; } }
 
 .region-header {
   float: right;

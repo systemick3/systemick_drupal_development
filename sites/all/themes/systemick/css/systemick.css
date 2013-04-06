@@ -90,18 +90,18 @@ form label {
   position: absolute;
   top: 25px; }
 #logo img {
-  left: 562px;
-  position: absolute;
-  top: 45px; }
+  left: 0;
+  position: relative;
+  top: -10px; }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   #logo .development {
     left: 320px;
     position: absolute;
     top: 25px; }
   #logo img {
-    left: 512px;
-    position: absolute;
-    top: 51px; } }
+    left: 0;
+    position: relative;
+    top: -10px; } }
 
 .region-header {
   float: right;

@@ -102,17 +102,16 @@
       <div<?php print $branding_attributes; ?>>
 
         <?php if ($site_logo): ?>
-        <?php //die('2nd if ' . $site_logo); ?>
           <div id="logo">
-            <?php //print $site_logo; ?>
-            <span class="systemick">Systemick</span>
+            <?php print $site_logo; ?>
+            <!--<span class="systemick">Systemick</span>
             <span class="web">Drupal</span>
             <span class="development">Development</span>
-            <img src="/sites/all/themes/systemick/images/drupalicon_small.png" />
+            <img src="/sites/all/themes/systemick/images/drupalicon_small.png" />-->
           </div>
         <?php endif; ?>
 
-        <?php if ($site_name || $site_slogan): ?>
+        <?php /*if ($site_name || $site_slogan): ?>
           <!-- start: Site name and Slogan hgroup -->
           <hgroup<?php print $hgroup_attributes; ?>>
 
@@ -125,7 +124,7 @@
             <?php endif; ?>
 
           </hgroup><!-- /end #name-and-slogan -->
-        <?php endif; ?>
+        <?php endif;*/ ?>
 
       </div><!-- /end #branding -->
     <?php endif; ?>
